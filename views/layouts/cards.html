@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     <div class="col-6"><p class="card-body-description">{{ fighter.description }}</p></div>
-                    <div class="col-6">
+                    <div id="attributes-{{ fighter.id }}" class="col-6">
                         {% for attribute in fighter.attributes %}
                         <div id="{{ attribute.name }}-{{ fighter.id }}" class="card-body-text" attribute-name="{{ attribute.name }}" attribute-value="{{ attribute.value }}" attribute-id="{{ fighter.id }}">
                             <p class="card-body-title">{{ attribute.name }} </p>

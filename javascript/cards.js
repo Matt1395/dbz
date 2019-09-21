@@ -6,8 +6,10 @@ let opponentsFighters = [];
 let currentOpponent = 0;
 let attributeBoxes = document.getElementsByClassName('card-body-text');
 let attributeChosen = false;
+let validChoice = true;
 let userCard;
 let opponentCard;
+let opponentData;
 
 const startButton = document.getElementById('start-button');
 const resultButton = document.getElementById('result-button');
@@ -21,6 +23,7 @@ const populateFighters = () => {
 }
 
 const displayResult = (winner, loser, result) => {
+    opponentData.style.display = 'inline-block';
     if(result === 'win') {
         winner.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
         loser.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
@@ -42,14 +45,18 @@ const getResult = (userScore, opponentScore, userBox, opponentBox) => {
     attributeChosen = true;
     if(userScore > opponentScore) {
         displayResult(userBox, opponentBox, 'win');
+        validChoice = true;
     } else if (userScore < opponentScore) {
         displayResult(opponentBox, userBox, 'lost');
+        validChoice = true;
     } else if (userScore === opponentScore) {
-        displayResult(userBox, opponentBox, 'draw')
+        displayResult(userBox, opponentBox, 'draw');
+        validChoice = true;
     } else {
-        attributeChosen = true;
-        resultButton.innerHTML = "That is not a valid option for either your figher or your opponent. Please click this box and pick another option.";
+        resultButton.innerHTML = "That is not a valid option for either your figher or your opponent. Please pick another option.";
         resultButton.style.display = 'inline-block';
+        validChoice = false;
+        attributeChosen = false;
     }
 }
 
@@ -75,9 +82,9 @@ startButton.onclick = () => {
     }
     currentOpponent = randomNumber2 + 1;
     shuffleDeck();
+    opponentData = document.getElementById(`attributes-${currentOpponent}`);
+    opponentData.style.display = 'none';
     displayStartingCards(randomNumber1, randomNumber2);
-    console.log(usersFighters);
-    console.log(opponentsFighters);
 }
 
 const getRandomNumber = maxNum => {
@@ -102,17 +109,19 @@ const displayStartingCards = (userNum, opponentNum) => {
 }
 
 resultButton.onclick = () => {
-    userCard.style.display = '';
-    opponentCard.style.display = '';
-    startButton.style.display = '';
-    resultButton.style.display = '';
-    attributeChosen = false;
-    for (let i=0; i<attributeBoxes.length; i++) {
-        attributeBoxes[i].style.backgroundColor = '';
+    if(validChoice) {
+        userCard.style.display = '';
+        opponentCard.style.display = '';
+        startButton.style.display = '';
+        resultButton.style.display = '';
+        attributeChosen = false;
+        for (let i=0; i<attributeBoxes.length; i++) {
+            attributeBoxes[i].style.backgroundColor = '';
+        }
+        totalFighters = [];
+        usersFighters = [];
+        opponentsFighters = [];
     }
-    totalFighters = [];
-    usersFighters = [];
-    opponentsFighters = [];
 }
 
 /*
