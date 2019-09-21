@@ -69,11 +69,24 @@ startButton.onclick = () => {
         randomNumber2 = getRandomNumber(totalFighters.length);
     }
     currentOpponent = randomNumber2 + 1;
+    shuffleDeck();
     displayStartingCards(randomNumber1, randomNumber2);
+    console.log(usersFighters);
+    console.log(opponentsFighters);
 }
 
 const getRandomNumber = maxNum => {
     return Math.floor(Math.random() * maxNum);
+}
+
+const shuffleDeck = () => {
+    let numberOfFighters = totalFighters.length;
+    for(let i=0; i<Math.floor(numberOfFighters/2); i++) {
+        let randomNumber = getRandomNumber(totalFighters.length);
+        usersFighters.push(totalFighters[randomNumber]);
+        totalFighters.splice(randomNumber, 1);
+    }
+    opponentsFighters = totalFighters;
 }
 
 const displayStartingCards = (userNum, opponentNum) => {
@@ -84,8 +97,8 @@ const displayStartingCards = (userNum, opponentNum) => {
 }
 
 resultButton.onclick = () => {
-    userCard.style.display = 'none';
-    opponentCard.style.display = 'none';
+    userCard.style.display = '';
+    opponentCard.style.display = '';
     startButton.style.display = '';
     resultButton.style.display = '';
     attributeChosen = false;
