@@ -1,8 +1,6 @@
 console.log(fightersObj);
 let totalFighters = [];
-for(let i=0; i<fightersObj.length; i++) {
-    totalFighters.push(fightersObj[i].id)
-}
+
 let usersFighters = [];
 let opponentsFighters = [];
 let currentOpponent = 0;
@@ -15,6 +13,12 @@ const startButton = document.getElementById('start-button');
 const resultButton = document.getElementById('result-button');
 
 const opponentAttributes = document.getElementById('opponent-attributes');
+
+const populateFighters = () => {
+    for(let i=0; i<fightersObj.length; i++) {
+        totalFighters.push(fightersObj[i].id)
+    }
+}
 
 const displayResult = (winner, loser, result) => {
     if(result === 'win') {
@@ -62,6 +66,7 @@ for (let i=0; i<attributeBoxes.length; i++) {
 }
 
 startButton.onclick = () => {
+    populateFighters();
     startButton.style.display = 'none';
     let randomNumber1 = getRandomNumber(totalFighters.length);
     let randomNumber2 = getRandomNumber(totalFighters.length);
@@ -105,6 +110,9 @@ resultButton.onclick = () => {
     for (let i=0; i<attributeBoxes.length; i++) {
         attributeBoxes[i].style.backgroundColor = '';
     }
+    totalFighters = [];
+    usersFighters = [];
+    opponentsFighters = [];
 }
 
 /*
