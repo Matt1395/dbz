@@ -1,0 +1,35 @@
+<div id="card-1" class="card">
+    <div class="card-attribute" attribute-name="{{attribute.name}}" attribute-value="{{attribute.value}}">{{fighter.attribute[0].name}} : {{fighter.attribute[0].value}} </div>
+</div>
+
+<div id="card-6" class="card">
+    <div id="height-6" class="card-attribute" attribute-name="height" attribute-value="2.5">{{fighter.attribute[0].name}} : {{fighter.attribute[0].value}} </div>
+</div>
+
+<script>
+    var currentOponent = 6;
+    var attributeBoxes = document.getElementsByClassName('card-attribute');
+
+    for( var i = 0; i < attributeBoxes.length; i++) {
+        attributeBoxes[i].onclick = () => {
+            var heroValue = this.getAttribute('attribute-value');
+            var attributeName = this.getAttribute('attribute-name');
+            var opponentAttribute = document.getElementById(attributeName + '-' + currentOponent);
+            compareFighters(heroValue, attributeName, opponentAttribute);
+        }
+    }
+
+    function compareFighters(heroValue, attributeName, opponentAttribute) {
+        //game logic
+        readyNextFighter();
+    }
+
+    function readyNextFighter() {
+        document.getElementById('card-'+currentOponent).hide();
+
+        currentOponent++;
+
+        document.getElementById('card-'+currentOponent).show();
+    }
+
+</script>
