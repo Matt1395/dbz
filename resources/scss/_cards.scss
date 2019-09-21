@@ -8,11 +8,15 @@
   }
 
 .card {
+    position: absolute;
+    display: none;
     background-image: url("https://static.vecteezy.com/system/resources/previews/000/639/222/non_2x/abstract-sun-burst-contrast-orange-blue-colors-background-you-can-use-for-hot-sales-promotion-versus-fight-ad-poster-cover-design-vector.jpg");
     background-position: top center;
     background-size: cover;
     margin-bottom: 10px;
-    max-height: 750px;
+    height: 800px;
+    flex-grow: 1;
+    z-index: 5;
     .card-header {
         height: 50px;
         .card-header-text {
@@ -67,9 +71,20 @@
     }
 }
 
-.cards-button {
-    margin: 20px auto;
+.result-button {
     display: none;
+    margin: 20px auto;
+    background-color: $textPurple;
+    color: $solidOrange;
+    border-radius: 5px;
+    border: none;
+    cursor:  pointer;
+    z-index: 8;
+}
+
+.start-button {
+    display: inline-block;
+    margin: 0 auto;
     background-color: $textPurple;
     color: $solidOrange;
     border-radius: 5px;

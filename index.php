@@ -56,11 +56,59 @@ switch ($request) {
     case '/cards' :
     echo $twig->render('cards.html', array(
         'fighters' => array(
-            array('name' => 'Goku', 'race' => "Saiyan (Ginyu's race)", "height" => "175", "weight" => "62", "goodness" => "9", "skill" => "10", "ranking" => "19", "description" => "Goku is often at the forefront of all the fight in the DBZ universe for the Z fighers. His natural skill and confidence makes him a pesky opponent to defeat. Especially once he goes Super Saiyan.", "img" => "https://vignette.wikia.nocookie.net/dbz-dokkanbattle/images/2/21/Dl5OdcoU0AAtMfQ.jpeg/revision/latest?cb=20181122082552"),
-            array('name' => 'Frieza', 'race' => "Frieza Race (mutant)", "height" => "158", "weight" => "Unknown", "goodness" => "2", "skill" => "8", "ranking" => "14", "description" => "Frieza is one of the early villains the Z fighters come across. His skill in combat is as great as his ego. He uses these skills to attempt to complete his goal of destroying all Saiyans.", "img" => "https://vignette.wikia.nocookie.net/villains/images/5/5d/Frieza.png/revision/latest?cb=20190209052711"),
-            array('name' => 'Cell', 'race' => "Bio-Android", 'height' => "213", "weight" => "unknown", "goodness" => "1", "skill" => "10", "ranking" => "8", "description" => "Cell is a formidable adversary that was created using the genetics of the greatest fighters to have been present on Earth. The Z fighters to battle hard to stop him reaching his end goal of destroying all things imperfect", "img" => "https://vignette.wikia.nocookie.net/dragonball/images/b/b4/Cell_DBZ_Ep_177_001.png/revision/latest?cb=20170921030318")
-        )
-    ));
+            array(
+                'id' => '1',
+                'name' => 'Goku', 
+                "description" => "Goku is often at the forefront of all the fight in the DBZ universe for the Z Fighers. His natural skill and confidence makes him a pesky opponent to defeat. Especially once he goes Super Saiyan.", 
+                "img" => "https://vignette.wikia.nocookie.net/dbz-dokkanbattle/images/2/21/Dl5OdcoU0AAtMfQ.jpeg/revision/latest?cb=20181122082552",
+                'attributes' => array(
+                    array("name" => 'Race:', "value" => "Saiyan (Ginyu's race)"), 
+                    array("name" => "Height:", "value" => "175"), 
+                    array("name" => "Weight:", "value" => "62"),
+                    array("name" => "Goodness Level:", "value" => "9"),
+                    array("name" => "Evil Level:", "value" => "0"),
+                    array("name" => "Fighitng Skill:", "value" => "10"), 
+                    array("name" => "Matt's Ranking:", "value" => "19"))),
+            array(
+                'id' => '2',
+                'name' => 'Frieza',
+                "description" => "Frieza is one of the early villains the Z Fighters come across. His skill in combat is as great as his ego. He uses these skills to attempt to complete his goal of destroying all Saiyans.", 
+                "img" => "https://vignette.wikia.nocookie.net/villains/images/5/5d/Frieza.png/revision/latest?cb=20190209052711",
+                'attributes' => array(
+                    array("name" => 'Race:', "value" => "Frieza Race (mutant)"),
+                    array("name" => "Height:", "value" => "158"),
+                    array("name" => "Weight:", "value" => "Unknown"),
+                    array("name" => "Goodness Level:", "value" => "2"),
+                    array("name" => "Evil Level:", "value" => "10"),
+                    array("name" => "Fighitng Skill:", "value" => "8"),
+                    array("name" => "Matt's Ranking:", "value" => "14"))),
+            array(
+                "id" => "3",
+                'name' => 'Cell',
+                "description" => "Cell is a formidable adversary that was created using the genetics of the greatest fighters to have been present on Earth. The Z Fighters to battle hard to stop him reaching his end goal of destroying all things imperfect",
+                "img" => "https://vignette.wikia.nocookie.net/dragonball/images/b/b4/Cell_DBZ_Ep_177_001.png/revision/latest?cb=20170921030318",
+                'attributes' => array(
+                    array("name" => 'Race:', "value" => "Bio-Android"),
+                    array("name" => 'Height:', "value" => "213"),
+                    array("name" => "Weight:", "value" => "unknown"),
+                    array("name" => "Goodness Level:", "value" => "1"),
+                    array("name" => "Evil Level:", "value" => "8"),
+                    array("name" => "Fighitng Skill:", "value" => "10"),
+                    array("name" => "Matt's Ranking:", "value" => "8"))),
+            array(
+                "id" => "4",
+                'name' => 'Vegeta',
+                "description" => "Prince Vegeta comes to earth to battle the powerful (Kakarot). It is clear early on Vegeta posses incredible strength and arrogance to win at all costs. But after his loss, and meeting Bulma, Vegeta becomes a valuable asset to the Z Fighters.",
+                "img" => "https://vignette.wikia.nocookie.net/dbmoves/images/0/00/Vegetapan-1-.jpg/revision/latest?cb=20111023155207",
+                'attributes' => array(
+                    array("name" => 'Race:', "value" => "Tuffle-Saiyan"),
+                    array("name" => 'Height:', "value" => "164"),
+                    array("name" => "Weight:", "value" => "56"),
+                    array("name" => "Goodness Level:", "value" => "6"),
+                    array("name" => "Evil Level:", "value" => "3"),
+                    array("name" => "Fighitng Skill:", "value" => "9"),
+                    array("name" => "Matt's Ranking:", "value" => "17")))
+    )));
     break;
     case '/characters/${ id }' :
     break;

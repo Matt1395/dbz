@@ -1,3 +1,116 @@
+console.log(fightersObj);
+let totalFighters = [];
+for(let i=0; i<fightersObj.length; i++) {
+    totalFighters.push(fightersObj[i].id)
+}
+let usersFighters = [];
+let opponentsFighters = [];
+let currentOpponent = 0;
+let attributeBoxes = document.getElementsByClassName('card-body-text');
+let attributeChosen = false;
+let userCard;
+let opponentCard;
+
+const startButton = document.getElementById('start-button');
+const resultButton = document.getElementById('result-button');
+
+const opponentAttributes = document.getElementById('opponent-attributes');
+
+const displayResult = (winner, loser, result) => {
+    if(result === 'win') {
+        winner.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
+        loser.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
+        resultButton.innerHTML = "You win this round! Click this button to continue fighting!"; 
+    } else if(result === 'lost') {
+        winner.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
+        loser.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
+        resultButton.innerHTML = "Your fighter has been defeated! Click this button to fight again!"; 
+    } else if (result === 'draw') {
+        winner.style.backgroundColor = 'rgba(255, 174, 81, 1)';
+        loser.style.backgroundColor = 'rgba(255, 174, 81, 1)';
+        resultButton.innerHTML = "You are an even match! Click this button to move onto the next battle!"; 
+    }
+    
+    resultButton.style.display = 'inline-block';
+}
+
+const getResult = (userScore, opponentScore, userBox, opponentBox) => {
+    attributeChosen = true;
+    if(userScore > opponentScore) {
+        displayResult(userBox, opponentBox, 'win');
+    } else if (userScore < opponentScore) {
+        displayResult(opponentBox, userBox, 'lost');
+    } else if (userScore === opponentScore) {
+        displayResult(userBox, opponentBox, 'draw')
+    } else {
+        attributeChosen = true;
+        resultButton.innerHTML = "That is not a valid option for either your figher or your opponent. Please click this box and pick another option.";
+        resultButton.style.display = 'inline-block';
+    }
+}
+
+for (let i=0; i<attributeBoxes.length; i++) {
+    attributeBoxes[i].onclick = () => {
+        const userValue = parseFloat(attributeBoxes[i].getAttribute('attribute-value'));
+        const userName = attributeBoxes[i].getAttribute('attribute-name');
+        const opponentAttribute = document.getElementById(`${userName}-${currentOpponent}`);
+        const opponentValue = parseFloat(opponentAttribute.getAttribute('attribute-value'));
+        if(!attributeChosen) {
+            getResult(userValue, opponentValue, attributeBoxes[i], opponentAttribute);
+        }
+    }
+}
+
+startButton.onclick = () => {
+    startButton.style.display = 'none';
+    let randomNumber1 = getRandomNumber(totalFighters.length);
+    let randomNumber2 = getRandomNumber(totalFighters.length);
+    while (randomNumber2 === randomNumber1) {
+        randomNumber2 = getRandomNumber(totalFighters.length);
+    }
+    currentOpponent = randomNumber2 + 1;
+    displayStartingCards(randomNumber1, randomNumber2);
+}
+
+const getRandomNumber = maxNum => {
+    return Math.floor(Math.random() * maxNum);
+}
+
+const displayStartingCards = (userNum, opponentNum) => {
+    userCard = document.getElementById(`card-${userNum + 1}`);
+    opponentCard = document.getElementById(`card-${opponentNum + 1}`);
+    userCard.style.display = 'inline-block';
+    opponentCard.style.display = 'inline-block';
+}
+
+resultButton.onclick = () => {
+    userCard.style.display = 'none';
+    opponentCard.style.display = 'none';
+    startButton.style.display = '';
+    resultButton.style.display = '';
+    attributeChosen = false;
+    for (let i=0; i<attributeBoxes.length; i++) {
+        attributeBoxes[i].style.backgroundColor = '';
+    }
+}
+
+/*
+resultButton.onclick = () => {
+    primaryGoodnessBox.style.backgroundColor = '';
+    primaryHeightBox.style.backgroundColor = '';
+    primaryRankingBox.style.backgroundColor = '';
+    primarySkillBox.style.backgroundColor = '';
+    primaryWeightBox.style.backgroundColor = '';
+    opponentGoodnessBox.style.backgroundColor = '';
+    opponentHeightBox.style.backgroundColor = '';
+    opponentRankingBox.style.backgroundColor = '';
+    opponentSkillBox.style.backgroundColor = '';
+    opponentWeightBox.style.backgroundColor = '';
+    opponentAttributes.style.display = '';
+    attributeChosen = false;
+    resultButton.style.display = '';
+}
+
 //Get The boxes which the user interacts with
 const primaryHeightBox = document.getElementById('primary-height-box');
 const primaryWeightBox = document.getElementById('primary-weight-box');
@@ -27,12 +140,6 @@ const opponentWeightScore = parseFloat(document.getElementById('opponent-weight-
 const opponentGoodnessScore = parseFloat(document.getElementById('opponent-goodness-score').innerHTML);
 const opponentSkillScore = parseFloat(document.getElementById('opponent-skill-score').innerHTML);
 const opponentRankingScore = parseFloat(document.getElementById('opponent-ranking-score').innerHTML);
-
-const resultButton = document.getElementById('result-button');
-
-const opponentAttributes = document.getElementById('opponent-attributes');
-
-let attributeChosen = false;
 
 primaryHeightBox.onclick = () => {
     if (!attributeChosen) {
@@ -68,54 +175,4 @@ primaryRaceBox.onclick = () => {
     if(!attributeChosen) {
         getResult(primaryRaceBox, opponentRaceBox);
     }
-}
-
-resultButton.onclick = () => {
-    primaryGoodnessBox.style.backgroundColor = '';
-    primaryHeightBox.style.backgroundColor = '';
-    primaryRankingBox.style.backgroundColor = '';
-    primarySkillBox.style.backgroundColor = '';
-    primaryWeightBox.style.backgroundColor = '';
-    opponentGoodnessBox.style.backgroundColor = '';
-    opponentHeightBox.style.backgroundColor = '';
-    opponentRankingBox.style.backgroundColor = '';
-    opponentSkillBox.style.backgroundColor = '';
-    opponentWeightBox.style.backgroundColor = '';
-    opponentAttributes.style.display = '';
-    attributeChosen = false;
-    resultButton.style.display = '';
-}
-
-const displayResult = (winner, loser, result) => {
-    opponentAttributes.style.display = 'inline-block';
-    if(result === 'win') {
-        winner.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
-        loser.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
-        resultButton.innerHTML = "You win this round! Click this button to continue fighting!"; 
-    } else if(result === 'lost') {
-        winner.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
-        loser.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
-        resultButton.innerHTML = "Your fighter has been defeated! Click this button to fight again!"; 
-    } else if (result === 'draw') {
-        winner.style.backgroundColor = 'rgba(255, 174, 81, 1)';
-        loser.style.backgroundColor = 'rgba(255, 174, 81, 1)';
-        resultButton.innerHTML = "You are an even match! Click this button to move onto the next battle!"; 
-    }
-    
-    resultButton.style.display = 'inline-block';
-}
-
-const getResult = (userScore, opponentScore, userBox, opponentBox) => {
-    attributeChosen = true;
-    if(userScore > opponentScore) {
-        displayResult(userBox, opponentBox, 'win');
-    } else if (userScore < opponentScore) {
-        displayResult(opponentBox, userBox, 'lost');
-    } else if (userScore === opponentScore) {
-        displayResult(userBox, opponentBox, 'draw')
-    } else {
-        attributeChosen = true;
-        resultButton.innerHTML = "That is not a valid option for either your figher or your opponent. Please click this box and pick another option.";
-        resultButton.style.display = 'inline-block';
-    }
-}
+}*/
