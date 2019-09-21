@@ -1,0 +1,16 @@
+{% extends "index.html.twig" %}
+
+{% block body %}
+    {% for character in characters %}
+    <div class="boxes-container col-4">
+        <div class="character-sheet">
+            <div class="front" style="{{ character.img is defined ? 'background-image: url(' ~ character.img ~ ');' : ''}}">
+                <h2 class="boxes__name">{{ character.name }}</h2>
+            </div>
+            <div class="back">
+                <p>{{ character.about }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{
+  "name": "dragonballz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styles": "node-sass resources/scss -o resources/css",
+    "watch": "node-sass resources/scss -o resources/css -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.12.0",
+    "npm-watch": "^0.6.0"
+  }
+}

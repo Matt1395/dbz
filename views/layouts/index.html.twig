@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    {% include "partials/base/head.html" %}
+    <body class="{% block body_class %}{% endblock %}">
+        {% include "partials/base/header.html" %}
+
+        <div class="body-scroll container">
+        {% block body %}{% endblock %}
+        </div>
+
+        {% include "partials/base/footer.html" %}
+    </body>
+</html>

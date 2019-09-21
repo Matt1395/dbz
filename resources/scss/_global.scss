@@ -1,0 +1,18 @@
+body{
+    background-image: url('https://i.pinimg.com/originals/c0/d1/5e/c0d15ea2e36dcbaf3da3aabe2aaf8bfa.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    font : {
+        family: 'Noto Serif', serif;
+        size: 18px;
+    }
+    .body-scroll {
+        overflow-y: scroll;
+        height: 100%;
+    }
+}

@@ -1,0 +1,90 @@
+{% extends "index.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <div class="card">
+                <div class="primaryCard">
+                    <div class="card-header"><h3 class="card-header-text">{{ fighters[0].name }}</h3></div>
+                    <div class="card-img" style="{{ fighters[0].img is defined ? 'background-image: url(' ~ fighters[0].img ~ ');' : ''}}">
+                        <!--<img src="{{ fighters[0].img is defined ? fighters[0].img : '' }}" class="card-img-top">-->
+                    </div>
+                    <div class="card-body">
+                        <div class="col-6"><p class="card-body-description">{{ fighters[0].description }}</p></div>
+                        <div class="col-6">
+                            <div id="primary-race-box" class="card-body-text">
+                                <p class="card-body-title">Race: </p>
+                                <h3 class="card-body-item">{{ fighters[0].race }}</h3>
+                            </div>
+                            <div id="primary-height-box" class="card-body-text">
+                                <p class="card-body-title">Height (cm): </p>
+                                <h3 id="primary-height-score" class="card-body-item">{{ fighters[0].height }}</h3>
+                            </div>
+                            <div id="primary-weight-box" class="card-body-text">
+                                <p class="card-body-title">Weight (kg): </p>
+                                <h3 id="primary-weight-score" class="card-body-item">{{ fighters[0].weight }}</h3>
+                            </div>
+                            <div id="primary-goodness-box" class="card-body-text">
+                                <p class="card-body-title">Goodness Level: </p>
+                                <h3 id="primary-goodness-score" class="card-body-item">{{ fighters[0].goodness }}</h3>
+                            </div>
+                            <div id="primary-skill-box" class="card-body-text">
+                                <p class="card-body-title">Fighting Skill: </p>
+                                <h3 id="primary-skill-score" class="card-body-item">{{ fighters[0].skill }}</h3>
+                            </div>
+                            <div id="primary-ranking-box" class="card-body-text">
+                                <p class="card-body-title">Matt's Ranking: </p>
+                                <h3 id="primary-ranking-score" class="card-body-item">{{ fighters[0].ranking }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-5">
+            <div id="card1" class="card">
+                <div class="secondaryCard">
+                    <div class="card-header"><h3 class="card-header-text">{{ fighters[2].name }}</h3></div>
+                    <div class="card-img" style="{{ fighters[2].img is defined ? 'background-image: url(' ~ fighters[2].img ~ ');' : ''}}">
+                    </div>
+                    <div class="card-body">
+                        <div class="col-6"><p class="card-body-description">{{ fighters[2].description }}</p></div>
+                        <div id="opponent-attributes" class="opponent-attributes col-6">
+                            <div id="opponent-race-box" class="card-body-text">
+                                <p class="card-body-title">Race: </p>
+                                <h3 class="card-body-item">{{ fighters[2].race }}</h3>
+                            </div>
+                            <div id="opponent-height-box" class="card-body-text">
+                                <p class="card-body-title">Height (cm): </p>
+                                <h3 id="opponent-height-score" class="card-body-item">{{ fighters[2].height }}</h3>
+                            </div>
+                            <div id="opponent-weight-box" class="card-body-text">
+                                <p class="card-body-title">Weight (kg): </p>
+                                <h3 id="opponent-weight-score" class="card-body-item">{{ fighters[2].weight }}</h3>
+                            </div>
+                            <div id="opponent-goodness-box" class="card-body-text">
+                                <p class="card-body-title">Goodness Level: </p>
+                                <h3 id="opponent-goodness-score" class="card-body-item">{{ fighters[2].goodness }}</h3>
+                            </div>
+                            <div id="opponent-skill-box" class="card-body-text">
+                                <p class="card-body-title">Fighting Skill: </p>
+                                <h3 id="opponent-skill-score" class="card-body-item">{{ fighters[2].skill }}</h3>
+                            </div>
+                            <div id="opponent-ranking-box" class="card-body-text">
+                                <p class="card-body-title">Matt's Ranking: </p>
+                                <h3 id="opponent-ranking-score" class="card-body-item">{{ fighters[2].ranking }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div>
+        <button id="result-button" class="cards-button"></button>
+    </div>
+{% endblock %}

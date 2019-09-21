@@ -1,0 +1,13 @@
+<div id="intro" class="row">
+    <div id="intro-text">
+        <h2>{{ intro.welcome }}</h2>
+        <p>{{ intro.introduction }}</p>
+        <p>{{ intro.story }}</p>
+        <p>{{ intro.charIntro }}</p>
+        <ul>
+            {% for character in intro.characters %}
+            <li>{{ character.name }}...</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

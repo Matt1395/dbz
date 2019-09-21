@@ -1,0 +1,74 @@
+@mixin transform-style($style){
+    transform-style: $style;
+   -moz-transform-style: $style;
+   -o-transform-style: $style;
+   -ms-transform-style: $style;
+   -webkit-transform-style: $style;
+ }
+
+ @mixin transition($time){
+    transition: $time;
+    -webkit-transition: $time;
+    -moz-transition: $time;
+    -o-transition: $time;
+  }
+
+  @mixin transform($transformation) {
+    transform: $transformation;
+    -webkit-transform: $transformation;
+    -moz-transform: $transformation;
+    -ms-transform: $transformation;
+    -o-transform: $transformation;
+  }
+
+  @mixin backface-visibility($visibility: hidden) {
+    backface-visibility: $visibility;
+    -webkit-backface-visibility: $visibility;
+    -moz-backface-visibility: $visibility;
+    -ms-backface-visibility: $visibility;
+    -o-backface-visibility: $visibility;
+  }
+
+.container {
+    padding-top: 130px;
+    background-color: $fadedOrange;
+    color: $textPurple;
+    .boxes-container {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+        min-height: 200px;
+        display: inline-block;
+        .character-sheet{
+            margin-bottom: 625px;
+            @include transform-style(preserve-3d);
+            @include transition(0.9s);
+            &:hover{
+                @include transform (rotatey(-180deg));  
+            }
+            .boxes__name {
+                background-color: $fadedOrange;
+                width: 130px;
+                margin: 0 auto;
+            }	
+            .front, .back {
+                height: 600px;
+                width: 350px;
+                border-radius: 5px;
+                position: absolute;
+                @include backface-visibility();
+            }
+            .front {
+                background-position: top center;
+                background-size: cover; 
+            }
+            .back {
+                @include transform(rotatey(-180deg));
+                background-image: url('https://5.imimg.com/data5/JB/EM/MY-11791301/parchment-paper-500x500.jpg');
+                overflow-y: scroll;
+                height: 600px;
+                width: 340px;
+                position: top;
+            }
+        }
+    }
+}

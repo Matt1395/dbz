@@ -1,0 +1,7 @@
+{% extends "index.html.twig" %}
+
+{% block body %}
+    {% include "partials/home/intro.html" with {'intro' : intro} %}
+
+    {% include "partials/utils/carousel.html" with {'images' : images} %}    
+{% endblock %}
