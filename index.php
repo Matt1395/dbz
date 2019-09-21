@@ -98,7 +98,7 @@ switch ($request) {
             array(
                 "id" => "4",
                 'name' => 'Vegeta',
-                "description" => "Prince Vegeta comes to earth to battle the powerful (Kakarot). It is clear early on Vegeta posses incredible strength and arrogance to win at all costs. But after his loss, and meeting Bulma, Vegeta becomes a valuable asset to the Z Fighters.",
+                "description" => "Prince Vegeta comes to earth to battle the powerful Kakarot (Goku). It is clear early on Vegeta posses incredible strength and arrogance to win at all costs. But after his loss, and meeting Bulma, Vegeta becomes a valuable asset to the Z Fighters.",
                 "img" => "https://vignette.wikia.nocookie.net/dbmoves/images/0/00/Vegetapan-1-.jpg/revision/latest?cb=20111023155207",
                 'attributes' => array(
                     array("name" => 'Race:', "value" => "Tuffle-Saiyan"),
