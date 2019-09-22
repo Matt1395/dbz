@@ -55,6 +55,7 @@ switch ($request) {
     break;
     case '/cards' :
     echo $twig->render('cards.html', array(
+        'instructions' => 'Click on the button below to start the game. Once you do two cards will appear. Both have a deck counter above to show you how many cards both you and your opponent has. Your cards are on the left and the opponents are on the right. Select one of the boxes in the bottom right to select you battle choice and then follow the on screen instructions. Once either deck gets to 0 cards there will be a winner and you will press the button to bring you back to this page. Gather all the fighters to save the world! Enjoy!',
         'fighters' => array(
             array(
                 'id' => '1',

@@ -18,6 +18,7 @@ let previousOpponent;
 let previousUser;
 
 const startButton = document.getElementById('start-button');
+const cardInstructions = document.getElementById('cards-instructions');
 const resultButton = document.getElementById('result-button');
 const battleButton = document.getElementById('battle-button');
 const invalidButton = document.getElementById('invalid-button');
@@ -162,6 +163,7 @@ for (let i=0; i<attributeBoxes.length; i++) {
 startButton.onclick = () => {
     populateFighters();
     startButton.style.display = 'none';
+    cardInstructions.style.display = 'none';
     shuffleDeck();
     userIndex = 0;
     opponentIndex = 0;
@@ -236,6 +238,7 @@ resultButton.onclick = () => {
         opponentCard.style.display = '';
         opponentCard.parentNode.classList.remove('order-2');
         startButton.style.display = '';
+        cardInstructions.style.display = '';
         resultButton.style.display = '';
         counters.style.display = '';
         attributeChosen = false;
