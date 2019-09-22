@@ -127,7 +127,7 @@ switch ($request) {
                 "id" => "6",
                 'name' => 'Piccolo',
                 "description" => "Piccolo is initially one of the first villains Goku faces. After being defeated by Goku he humbles and starts working with the Z Fighters, even training Gohan for the battle with Vegeta. After his merge with Kami he become Earth's Guardian.",
-                "img" => "https://static.fjcdn.com/pictures/Dbz_0258e7_5503020.jpg",
+                "img" => "https://2eu.funnyjunk.com/pictures/Dbz_0258e7_5503020.jpg",
                 'attributes' => array(
                     array("name" => 'Race:', "value" => "Demonic Namekian"),
                     array("name" => 'Height:', "value" => "226"),

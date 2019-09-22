@@ -29,46 +29,45 @@
     -o-backface-visibility: $visibility;
   }
 
-.container {
-    padding-top: 130px;
-    background-color: $fadedOrange;
-    color: $textPurple;
-    .boxes-container {
-        flex: 1 1 100%;
-        margin-bottom: 20px;
-        min-height: 200px;
-        display: inline-block;
-        .character-sheet{
-            margin-bottom: 625px;
-            @include transform-style(preserve-3d);
-            @include transition(0.9s);
-            &:hover{
-                @include transform (rotatey(-180deg));  
-            }
-            .boxes__name {
-                background-color: $fadedOrange;
-                width: 130px;
-                margin: 0 auto;
-            }	
-            .front, .back {
-                height: 600px;
-                width: 350px;
-                border-radius: 5px;
-                position: absolute;
-                @include backface-visibility();
-            }
-            .front {
-                background-position: top center;
-                background-size: cover; 
-            }
-            .back {
-                @include transform(rotatey(-180deg));
-                background-image: url('https://5.imimg.com/data5/JB/EM/MY-11791301/parchment-paper-500x500.jpg');
-                overflow-y: scroll;
-                height: 600px;
-                width: 340px;
-                position: top;
-            }
+.boxes-container {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+    min-height: 200px;
+    display: inline-block;
+    .character-sheet{
+        height: 100%;
+        margin-bottom: 625px;
+        @include transform-style(preserve-3d);
+        @include transition(0.9s);
+        &:hover{
+            @include transform (rotatey(-180deg));  
+        }
+        .boxes__name {
+            background-color: $solidOrange;
+            width: 130px;
+            margin: 0 auto;
+            border-radius: 0 0 5px 5px;
+        }	
+        .front, .back {
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 4px 5px 6px 3px rgba(0, 0, 0, 0.22);
+            position: absolute;
+            @include backface-visibility();
+        }
+        .front {
+            background-position: top center;
+            background-size: cover; 
+        }
+        .back {
+            @include transform(rotatey(-180deg));
+            background-image: url('https://5.imimg.com/data5/JB/EM/MY-11791301/parchment-paper-500x500.jpg');
+            overflow-y: scroll;
+            height: 100%;
+            width: 100%;
+            padding: 15px;
+            text-align: left;
         }
     }
 }

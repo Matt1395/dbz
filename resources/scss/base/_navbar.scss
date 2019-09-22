@@ -11,25 +11,27 @@ header {
         weight: bold;
         size: 2rem;
     }
-    #navigation {
-        border-bottom: 4px solid $solidOrange;
-        width: 100%;
-        text-align: center;
-        ul{
-            width: 1000px;
-            margin: auto;
-            justify-content: space-between;
-            display: inline-block;
-            li {
-                display: inline-block;
-                list-style: none;
-                flex-wrap: wrap;
-                padding: 0 10px;
-                a{
-                    text-decoration: none;
-                    color: $solidOrange;
-                }
+    // ul{
+        //     width: 1000px;
+        //     margin: auto;
+        //     justify-content: space-between;
+        //     display: inline-block;
+        //     li {
+            //         display: inline-block;
+            //         list-style: none;
+            //         flex-wrap: wrap;
+            //         padding: 0 10px;
+            //         a{
+                //             text-decoration: none;
+                //             color: $solidOrange;
+                //         }
+                //     }
+                // }
             }
-        }
+.navbar {
+    background-color: #6600ff;
+    border-bottom: 4px solid $solidOrange;
+    .nav-link {
+        color: #ff8c1a;
     }
 }

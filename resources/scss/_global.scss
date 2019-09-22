@@ -12,8 +12,15 @@ body{
         size: 18px;
     }
     .body-scroll {
-        overflow-y: scroll;
+        background: rgba(255,255,255, 0.33);
         height: 100%;
+        padding-top: 135px;
         position: relative;
+        overflow-y: scroll;
+    }
+    p {
+        font-family: $font-family;
+        font-weight: $font-default;
+        color: #2a2a2a;
     }
 }

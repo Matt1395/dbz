@@ -4,5 +4,5 @@
     <!--loads the intro partial for home page-->
     {% include "partials/home/intro.html" with {'intro' : intro} %}
     <!--loads the carousel partial-->
-    {% include "partials/utils/carousel.html" with {'images' : images} %}    
+    {% include "partials/utils/carousel.html" with {'images' : images, 'slideshowClass' : 'intro-slideshow'} %}    
 {% endblock %}

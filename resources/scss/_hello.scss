@@ -1,21 +1,22 @@
-#intro {
+.intro {
     margin: 0 auto;
-    background-color: $fadedOrange;
-    color: $textPurple;
-    #intro-text {
+    .intro-text {
         width: 85%;
         margin: 0 auto;
-        li {
-            display: inline-block;
-            list-style: none;
-            flex-wrap: wrap;
+        text-align: justify;
+        h2 {
+            text-align: center;
+        }
+        ul {
+            text-align: center;
+            li {
+                display: inline-block;
+                list-style: none;
+                flex-wrap: wrap;
+            }
         }
     }
 }
-#slideshow {
-    margin: 0 auto;
-    padding-top: 50px;
-    background-color: $fadedOrange;
-    color: $textPurple;
-    justify-content: center;
+.intro-slideshow {
+    margin-top: 50px;
 }

@@ -1,6 +1,6 @@
-<div id="slideshow" class="row">
+<div id="slideshow" class="{{slideshowClass}} row">
     <!--creates a bootstrap carousel-->                    
-    <div id="dbzAlbum" class="carousel slide col-10" data-ride="carousel">
+    <div id="dbzAlbum" class="carousel slide w-100" data-ride="carousel">
         <div class="carousel-inner">
             <!--adds all images in database to carousel-->
             {% for image in images %}
@@ -18,10 +18,11 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
-        <div>
-            <br>
-            <p>{{ title }}</p>
-        </div>
+        {% if title|length > 0 %}
+            <div>
+                <br>
+                <p>{{ title }}</p>
+            </div>
+        {% endif %}
     </div>
 </div>
