@@ -82,7 +82,10 @@ const selectNextFighters = () => {
 }
 
 const getNextCard = (currentCard, previousCard, index, array) => {
-    if (currentCard == previousCard && index + 1 == array.length) {
+    if (index == -1){
+        index = 0;
+        return index;
+    } else if (currentCard == previousCard && index + 1 == array.length) {
         index = 0;
         console.log('you hit me 1');
         return index;
