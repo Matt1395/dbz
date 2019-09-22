@@ -69,16 +69,8 @@ const consolidateDecks = (result) => {
 }
 
 const selectNextFighters = () => {
-    console.log(userIndex);
-    console.log(opponentIndex);
-    console.log(usersFighters);
-    console.log(opponentsFighters);
     userIndex = getNextCard(usersFighters[userIndex], previousUser, userIndex, usersFighters);
     opponentIndex = getNextCard(opponentsFighters[opponentIndex], previousOpponent, opponentIndex, opponentsFighters);
-    console.log(userIndex);
-    console.log(opponentIndex);
-    console.log(usersFighters);
-    console.log(opponentsFighters);
 }
 
 const getNextCard = (currentCard, previousCard, index, array) => {
@@ -87,17 +79,14 @@ const getNextCard = (currentCard, previousCard, index, array) => {
         return index;
     } else if (currentCard == previousCard && index + 1 == array.length) {
         index = 0;
-        console.log('you hit me 1');
         return index;
     } else if (currentCard == previousCard && index + 1 < array.length) {
         index++;
-        console.log('you hit me 2 userIndex: ' + index);
         return index;
     } else if (index >= array.length) {
         index = 0;
         return index;
     } else if (currentCard != previousCard){
-        console.log('you hit me 3'); 
         return index;
     }
 }
@@ -170,8 +159,6 @@ startButton.onclick = () => {
     shuffleDeck();
     userIndex = 0;
     opponentIndex = 0;
-    console.log(usersFighters);
-    console.log(opponentsFighters);
     displayStartingCards(usersFighters[userIndex], opponentsFighters[opponentIndex]);
 }
 
@@ -201,9 +188,6 @@ const displayStartingCards = (userNum, opponentNum) => {
     opponentCounter.innerHTML = opponentsFighters.length;
     counters.style.display = 'flex';
 
-    console.log(userNum);
-    console.log(opponentNum);
-
     userData = document.getElementById(`attributes-${userNum}`);
     userData.style.display = 'block';
 
@@ -225,8 +209,6 @@ battleButton.onclick = () => {
     opponentData.style.display = 'none';
     selectNextFighters();
     displayStartingCards(usersFighters[userIndex], opponentsFighters[opponentIndex]);
-    console.log(usersFighters);
-    console.log(opponentsFighters);
     battleButton.style.display = '';
     attributeChosen = false;
     for (let i=0; i<attributeBoxes.length; i++) {
