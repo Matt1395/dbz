@@ -107,7 +107,59 @@ switch ($request) {
                     array("name" => "Goodness Level:", "value" => "6"),
                     array("name" => "Evil Level:", "value" => "3"),
                     array("name" => "Fighitng Skill:", "value" => "9"),
-                    array("name" => "Matt's Ranking:", "value" => "17")))
+                    array("name" => "Matt's Ranking:", "value" => "17"))),
+            array(
+                "id" => "5",
+                'name' => 'Gohan',
+                "description" => "Gohan is the eldest son of Goku. Often belived to be more powerful than his legendary farther but he is much less willing to fight. Often only choosing to when absolutely necessary and looks to offer mercy when possible.",
+                "img" => "https://vignette.wikia.nocookie.net/dragonball/images/5/5e/GohanSuperSaiyanIINV.png/revision/latest?cb=20100506144945",
+                'attributes' => array(
+                    array("name" => 'Race:', "value" => "Human-Saiyan"),
+                    array("name" => 'Height:', "value" => "176"),
+                    array("name" => "Weight:", "value" => "61"),
+                    array("name" => "Goodness Level:", "value" => "11"),
+                    array("name" => "Evil Level:", "value" => "0"),
+                    array("name" => "Fighitng Skill:", "value" => "11"),
+                    array("name" => "Matt's Ranking:", "value" => "18"))),
+            array(
+                "id" => "6",
+                'name' => 'Piccolo',
+                "description" => "Piccolo is initially one of the first villains Goku faces. After being defeated by Goku he humbles and starts working with the Z Fighters, even training Gohan for the battle with Vegeta. After his merge with Kami he become Earth's Guardian.",
+                "img" => "https://static.fjcdn.com/pictures/Dbz_0258e7_5503020.jpg",
+                'attributes' => array(
+                    array("name" => 'Race:', "value" => "Demonic Namekian"),
+                    array("name" => 'Height:', "value" => "226"),
+                    array("name" => "Weight:", "value" => "116"),
+                    array("name" => "Goodness Level:", "value" => "7"),
+                    array("name" => "Evil Level:", "value" => "1"),
+                    array("name" => "Fighitng Skill:", "value" => "8"),
+                    array("name" => "Matt's Ranking:", "value" => "17"))),
+            array(
+                "id" => "7",
+                'name' => 'Majin Buu',
+                "description" => "Majin Buu has many different forms and personalities. Super Buu (picutred above) is the result of Evil Buu absorbing Good Buu which means Super Buu has the strength and intellect of both with non of the morality.",
+                "img" => "https://vignette.wikia.nocookie.net/dragonball/images/e/e3/Majin_Buu_DBZ_Ep_263_002.png/revision/latest?cb=20180121183408",
+                'attributes' => array(
+                    array("name" => 'Race:', "value" => "Tuffle-Saiyan"),
+                    array("name" => 'Height:', "value" => "244"),
+                    array("name" => "Weight:", "value" => "unknown"),
+                    array("name" => "Goodness Level:", "value" => "0"),
+                    array("name" => "Evil Level:", "value" => "9"),
+                    array("name" => "Fighitng Skill:", "value" => "10"),
+                    array("name" => "Matt's Ranking:", "value" => "15"))),
+            array(
+                "id" => "8",
+                'name' => 'Krillin',
+                "description" => "Krillin is the lifelong best friend of Goku. One of the strongest fighters actually from Earth but often finds himself out classed in the battles throughout the series. Regardless he is always with his fellow Z Fighters to  save his home and his loved ones.",
+                "img" => "http://66.media.tumblr.com/3ab260d45a7a047511d497bf2de2177d/tumblr_n9n6l4wmxj1sopnxqo1_500.gif",
+                'attributes' => array(
+                    array("name" => 'Race:', "value" => "Human"),
+                    array("name" => 'Height:', "value" => "153"),
+                    array("name" => "Weight:", "value" => "45"),
+                    array("name" => "Goodness Level:", "value" => "10"),
+                    array("name" => "Evil Level:", "value" => "0"),
+                    array("name" => "Fighitng Skill:", "value" => "6"),
+                    array("name" => "Matt's Ranking:", "value" => "18")))
     )));
     break;
     case '/characters/${ id }' :
