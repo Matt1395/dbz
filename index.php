@@ -7,6 +7,7 @@ $twig = new Twig_Environment($loader);
 
 $request = $_SERVER['REQUEST_URI'];
 
+//Creates a router for each page with the needed data
 switch ($request) {
     case '/' :
     echo $twig->render('hello.html', array(
@@ -162,7 +163,5 @@ switch ($request) {
                     array("name" => "Fighitng Skill:", "value" => "6"),
                     array("name" => "Matt's Ranking:", "value" => "18")))
     )));
-    break;
-    case '/characters/${ id }' :
     break;
 }

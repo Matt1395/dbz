@@ -4,7 +4,7 @@
     {% for character in characters %}
     <div class="boxes-container col-4">
         <div class="character-sheet">
-            <div class="front" style="{{ character.img is defined ? 'background-image: url(' ~ character.img ~ ');' : ''}}">
+            <div class="front" style="{{ character.img is defined ? 'background-image: url(' ~ character.img ~ ');' : ''}}"> <!--makes sure image is defined in database-->
                 <h2 class="boxes__name">{{ character.name }}</h2>
             </div>
             <div class="back">

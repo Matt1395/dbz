@@ -1,29 +1,33 @@
 {% extends "index.html.twig" %}
 
 {% block body %}
+    <!--gives instructions to the user-->
     <div id="cards-instructions">{{ instructions }}</div>  
     <div>
         <br>
         <button id="start-button" class="button start-button">Click here to start a random game!</button>
     </div>
-
+    <!--buttons that are used in the game-->
     <button id="battle-button" class="button result-button"></button>
     <button id="invalid-button" class="button result-button"></button>
     <button id="result-button" class="button result-button"></button>
 
     <div class="row justify-content-between" style="padding: 0 75px;">
         <div id="counters" class="counters w-100 justify-content-between">
+            <!--displays the amount in each deck-->
             <div class="text-left col-5">Cards In Deck: <span id="user-counter"></span></div>
             <div class="text-left col-5">Cards In Deck: <span id="opponent-counter"></span></div>
         </div>
+        <!--creates a card for every fighter in database-->
         {% for fighter in fighters %}
         <div class="col-5 position-relative">
             <div id="card-{{ fighter.id }}" class="card">
                 <div class="card-header"><h3 class="card-header-text">{{ fighter.name }}</h3></div>
-                <div class="card-img" style="{{ fighter.img is defined ? 'background-image: url(' ~ fighter.img ~ ');' : ''}}">
+                <div class="card-img" style="{{ fighter.img is defined ? 'background-image: url(' ~ fighter.img ~ ');' : ''}}"> <!--makes sure image is defined in database-->
                 </div>
                 <div class="card-body">
                     <div class="col-6"><p class="card-body-description">{{ fighter.description }}</p></div>
+                    <!--fills in every attribute and gives required class, id and attribute names-->
                     <div id="attributes-{{ fighter.id }}" class="col-6">
                         {% for attribute in fighter.attributes %}
                         <div id="{{ attribute.name }}-{{ fighter.id }}" class="card-body-text" attribute-name="{{ attribute.name }}" attribute-value="{{ attribute.value }}" attribute-id="{{ fighter.id }}">
@@ -37,12 +41,13 @@
         </div>
         {% endfor %}
     </div>
-
+    <!--passes the database into a json file so it can be accessed in the js file-->
     <script> 
         var fightersObj = {{fighters|json_encode|raw}};
     </script>
 {% endblock %}
 
+<!--links the card.js file for to make interactive-->
 {% block javascript %}
     <script type="text/javascript" src="javascript/cards.js"></script>
 {% endblock %}

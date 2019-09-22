@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
+    <!--includes the head partial for every page-->
     {% include "partials/base/head.html" %}
     <body class="{% block body_class %}{% endblock %}">
+        <!--includes the header for every page-->
         {% include "partials/base/header.html" %}
 
+        <!--creates the space to enter data for each new page-->
         <div class="body-scroll container">
         {% block body %}{% endblock %}
         </div>
 
+        <!--includes footer for each page-->
         {% include "partials/base/footer.html" %}
+        <!--allows space to enter javascript links for required pages-->
         {% block javascript %}{% endblock %}
     </body>
 </html>
