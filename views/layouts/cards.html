@@ -20,25 +20,7 @@
         </div>
         <!--creates a card for every fighter in database-->
         {% for fighter in fighters %}
-        <div class="col-5 position-relative">
-            <div id="card-{{ fighter.id }}" class="dbz-card">
-                <div class="card-header"><h3 class="card-header-text">{{ fighter.name }}</h3></div>
-                <div class="card-img" style="{{ fighter.img is defined ? 'background-image: url(' ~ fighter.img ~ ');' : ''}}"> <!--makes sure image is defined in database-->
-                </div>
-                <div class="card-body">
-                    <!-- <div class="col-6"><p class="card-body-description">{{ fighter.description }}</p></div> -->
-                    <!--fills in every attribute and gives required class, id and attribute names-->
-                    <div id="attributes-{{ fighter.id }}" class="col-11 mx-auto">
-                        {% for attribute in fighter.attributes %}
-                        <div id="{{ attribute.name }}-{{ fighter.id }}" class="card-body-text" attribute-name="{{ attribute.name }}" attribute-value="{{ attribute.value }}" attribute-id="{{ fighter.id }}">
-                            <p class="card-body-title">{{ attribute.name }} </p>
-                            <h3 class="card-body-item">{{ attribute.value }}</h3>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include "partials/utils/card.html" with {'fighter' : fighter} %}
         {% endfor %}
     </div>
     <!--passes the database into a json file so it can be accessed in the js file-->
